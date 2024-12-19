@@ -15,7 +15,6 @@ private:
             if(f(x)>f(y))swap(x,y);
         }
         while(f(x)*f(y)>=0);
-        // if(f(x)>f(y))swap(x,y);
     }
 public:
     Bisection(double tol){

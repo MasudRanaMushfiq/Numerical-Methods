@@ -2,7 +2,7 @@
 using   namespace std;
 
 class NewtonInterpolation{
-private: 
+private:
     vector<double>x,y;
     int n;
     vector<vector<double>>a;
@@ -30,7 +30,6 @@ public:
     }
     double root(double xx){
         double ans = a[0][0];
-        double p = (xx-x[0])/(x[1]-x[0]);
         for(int i=1;i<n;i++){
             double mul =1;
             double val = a[0][i];
@@ -47,13 +46,11 @@ public:
 
 
 int main(){
-    // vector<double>x = {5,6,9,11};
-    // vector<double>y = {12,13,14,16};
+
     vector<double>x = {300,304,305,307};
     vector<double>y = {2.4771,2.4829,2.4843,2.4871};
     NewtonInterpolation np = NewtonInterpolation(x,y);
-    // cout<<"root: "<<np.root(7)<<endl; // 13.47 for first
-    cout<<"root: "<<np.root(301)<<endl; // 13.47 for first
+    cout<<"root: "<<np.root(301)<<endl;
     
 
 

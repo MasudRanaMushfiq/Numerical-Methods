@@ -47,38 +47,3 @@ int main(){
     // Newton naughty = Newton(0.0.001);  //2.09
     cout<<naughty.root();
 }
-// class newton{
-// private: 
-//     double xx,tol;
-//     double f(double x){
-//         // return x*x*x-2*x-5;
-//         return x*sin(x)+cos(x);
-//     }
-//     double fp(double x){
-//         // return 3*x*x-2;
-//         return x*cos(x);
-//     }
-//     double next(double x){
-//         return x-(f(x)/fp(x));
-//     }
-// public:
-//     newton(double tol){
-//         this->tol = tol;
-//         xx =3.1416;
-//     }
-//     double root(){
-//         double x1 = next(xx);
-//         int i =2;
-//         while(abs(x1-xx)>tol){
-//             cout<<x1<<" ";
-//             xx = x1;
-//             x1 = next(xx);
-//         }
-//         return x1;
-//     }
-// };
-// int main(){
-//     newton nt = newton(0.001);
-//     cout<<nt.root();
-//     return 0;
-// }

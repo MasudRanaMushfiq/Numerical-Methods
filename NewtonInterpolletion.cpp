@@ -36,7 +36,6 @@ public:
         double p = (val-x[0])/h;
         for(int i=1;i<n;i++){
             double v=calProduct(p,i)*tab[0][i];
-            // cout<<v<<" ";
             ans+=v;
         }
         return ans;
@@ -52,7 +51,6 @@ public:
             }
             
             double v=pd*tab[n-1-i][i];
-            // cout<<v<<" ";
             ans+=v;
         }
         return ans;
@@ -60,8 +58,7 @@ public:
 };
 
 int main(){
-    // vector<double>x = {0,1,2,3}; val = 4 ans = 33
-    // vector<double>y = {1,0,1,10};
+
     vector<double>x = {1891,1901,1911,1921,1931};
     vector<double>y = {46,66,81,93,101};
     newtonInterpolation ni= newtonInterpolation(x,y);
