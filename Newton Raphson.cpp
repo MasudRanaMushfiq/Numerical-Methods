@@ -1,44 +1,46 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Secant{
+class Newton{
 private:
     double x, next, tol, a, b;
     double f(double x){
         return x*x*x-2*x-5;
     }
-    
+    double fp(double x){
+        return 3*x*x-2;
+    }
     void genRandom(){
-        srand(time(0));
+        srand((time(0)));
         do{
             a = (rand()%100-50)/10.0;
             b = (rand()%100-50)/10.0;
         }
         while(f(a)*f(b)>=0);
         if(f(a)>f(b))swap(a,b);
+        
+        if(abs(f(a)-0)<abs(f(b)-0))
+            x = a;
+        else
+            x = b;
     }
 public:
-    Secant(double x, double tol){
+    Newton(double x, double tol){
+        this->x = x;
         this->tol = tol;
         genRandom();
-        cout<<a<<"  "<<b<<endl;
-        cout<<f(a)<<" "<<f(b)<<endl;
     }
     double root(){
-        double fx = (b-a)/(f(b)-f(a));
-        next = b-fx*f(b);
+        next = x-(f(x)/fp(x));
         while(abs(f(next))>tol){
-            a = b;
-            b = next;
-            fx = (b-a)/(f(b)-f(a));
-            next = b-fx*f(b);
+            x = next;
+            next = x-(f(x)/fp(x));
         }
         return next;
     }
 };
 
 int main(){
- 
-    Secant secant = Secant(0,0.001);
-    cout<<secant.root();
+    Newton naughty = Newton(0,0.001);
+    cout<<naughty.root();
 }

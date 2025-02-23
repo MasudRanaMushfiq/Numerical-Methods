@@ -10,23 +10,24 @@ public:
     NewtonInterpolation(vector<double>x,vector<double>y){
         this->x = x;
         this->y = y;
-        
         makeTable();
     }
     void makeTable(){
         n = x.size();
         a.resize(n,vector<double>(n,0.0));
-        for(int i=0;i<n;i++)a[i][0]= y[i];
+        for(int i=0;i<n;i++)
+            a[i][0]= y[i];
+
         for(int j=1;j<n;j++){
             for(int i=0;i<n-j;i++){
                 a[i][j] = a[i+1][j-1]-a[i][j-1];
             }
         }
         for(int i=0;i<n;i++){
-            for(int j=0;j<n-i;j++)cout<<a[i][j]<<" ";
+            for(int j=0;j<n-i;j++)
+            cout<<a[i][j]<<" ";
             cout<<endl;
         }
-
     }
     double forwordRoot(double xx){
         double ans = a[0][0];
@@ -54,7 +55,6 @@ public:
         }
         return ans;
     }
-    
 };
 
 
@@ -62,7 +62,6 @@ int main(){
     vector<double>x = {1891,1901,1911,1921,1931};
     vector<double>y = {46,66,81,93,101};
     NewtonInterpolation np = NewtonInterpolation(x,y);
-    cout<<np.forwordRoot(1895)<<endl;
+    cout<<np.forwordRoot(1920)<<endl;
     cout<<np.backwordRoot(1895)<<endl;
-
 }
